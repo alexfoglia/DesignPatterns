@@ -1,0 +1,60 @@
+@startuml
+
+title Decorator Pattern
+
+abstract class Beverage {
+    String description
+
+    String getDescription()
+    double cost()
+}
+
+class HouseBlend extends Beverage {
+    double cost()
+}
+
+class DarkRoast extends Beverage {
+    double cost()
+}
+
+class Espresso extends Beverage {
+    double cost()
+}
+
+class Decaf extends Beverage {
+    double cost()
+}
+
+class CondimentDecorator extends Beverage {
+    String getDescription()
+}
+
+class Milk extends CondimentDecorator {
+    Beverage beverage
+
+    String getDescription()
+    double cost()
+}
+
+class Mocha extends CondimentDecorator {
+    Beverage beverage
+
+    String getDescription()
+    double cost()
+}
+
+class Soy extends CondimentDecorator {
+    Beverage beverage
+
+    String getDescription()
+    double cost()
+}
+
+class Whip extends CondimentDecorator {
+    Beverage beverage
+
+    String getDescription()
+    double cost()
+}
+
+@enduml

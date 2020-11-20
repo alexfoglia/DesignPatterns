@@ -1,0 +1,24 @@
+@startuml
+
+title Adapter Pattern
+
+class Client {
+}
+
+interface Target {
+    request()
+}
+
+class Adapter implements Target {
+    request()
+}
+
+class Adaptee {
+    specificRequest()
+}
+
+Client --> Target
+
+Adapter --> Adaptee
+
+@enduml

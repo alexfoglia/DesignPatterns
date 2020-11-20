@@ -1,0 +1,31 @@
+@startuml
+
+title Template Method Pattern
+
+abstract class CaffeineBeverage {
+    final void prepareRecipe()
+    abstract void brew()
+    abstract void addCondiments()
+    void boilWater()
+    void pourInCup()
+}
+
+class Tea extends CaffeineBeverage {
+    brew()
+    addCondiments()
+}
+
+class Coffee extends CaffeineBeverage {
+    brew()
+    addCondiments()
+}
+
+class MateWithHookMethod extends CaffeineBeverage  {
+    brew()
+    addCondiments()
+    boolean customerWantsCondiments()
+    private String getUserInput()
+}
+
+
+@enduml

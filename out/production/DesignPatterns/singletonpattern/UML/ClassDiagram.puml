@@ -1,0 +1,12 @@
+@startuml
+
+title Singleton Pattern
+
+class Singleton {
+    volatile static uniqueInstance
+
+    private Singleton()
+    public static getInstance()
+}
+
+@enduml

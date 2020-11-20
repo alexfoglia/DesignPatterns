@@ -1,0 +1,33 @@
+@startuml
+
+title Iterator Pattern
+
+interface Aggregate {
+    createIterator()
+}
+
+class ConcreteAggregate implements Aggregate {
+    createIterator()
+}
+
+class Client {
+}
+
+interface Iterator {
+    hasNext()
+    next()
+    remove()
+}
+
+class ConcreteIterator implements Iterator {
+    hasNext()
+    next()
+    remove()
+}
+
+Client --> Aggregate
+Client --> Iterator
+
+ConcreteAggregate --> ConcreteIterator
+
+@enduml

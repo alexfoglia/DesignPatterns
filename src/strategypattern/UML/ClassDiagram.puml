@@ -1,0 +1,60 @@
+@startuml
+
+title Strategy Pattern
+
+abstract class Duck {
+    FlyBehavior flyBehavior
+    QuackBehavior quackBehavior
+
+    {abstract} void display()
+    void performQuack()
+    void performFly()
+    void setFlyBehavior(FlyBehavior flyBehavior)
+    void setQuackBehavior(QuackBehavior quackBehavior)
+    void swim()
+}
+
+class MallardDuck extends Duck {
+    void display()
+}
+
+class ReadHeadDuck extends Duck {
+    void display()
+}
+
+class RubberDuck extends Duck {
+    void display()
+}
+
+interface FlyBehavior {
+    void fly()
+}
+
+class FlyWithWings implements FlyBehavior {
+    void fly()
+}
+
+class FlyNoWay implements FlyBehavior {
+    void fly()
+}
+
+interface QuackBehavior {
+    void quak()
+}
+
+class Quack implements QuackBehavior {
+    void quack()
+}
+
+class Squeak implements QuackBehavior {
+    void quack()
+}
+
+class MuteQuack implements QuackBehavior {
+    void quack()
+}
+
+Duck --* FlyBehavior
+Duck --* QuackBehavior
+
+@enduml

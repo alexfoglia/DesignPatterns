@@ -1,0 +1,35 @@
+@startuml
+
+title Iterator Pattern
+
+Note "Waitress-Menu Relationship" as N1
+
+interface Menu {
+    createIterator()
+}
+
+class PancakeHouseMenu implements Menu {
+    MenuItems menuItems
+    createIterator()
+}
+
+class DinerMenu implements Menu {
+    MenuItems menuItems
+    createIterator()
+}
+
+class Waitress {
+    printMenu()
+    printMenuItems()
+}
+
+class DinerMenuIterator implements Iterator {
+    hasNext()
+    next()
+    remove()
+}
+
+Waitress --> Menu
+Waitress --> Iterator
+
+@enduml

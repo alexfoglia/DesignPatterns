@@ -1,0 +1,72 @@
+@startuml
+
+title Observer Pattern
+
+interface Subject {
+    registerObserver()
+    removeObserver()
+    notifyObservers()
+}
+
+interface Observer {
+    update()
+}
+
+interface DisplayElement {
+    display()
+}
+
+class WeatherData implements Subject {
+    List<Observer> observers
+    float temperature
+    float humidity
+    float pressure
+    registerObserver()
+    removeObserver()
+    notifyObservers()
+    getTemperature()
+    getHumidity()
+    getPressure()
+    measurementsChanged()
+}
+
+class CurrentConditionsDisplay implements Observer, DisplayElement {
+    float temperature
+    float humidity
+    Subject weatherData
+    update()
+    display()
+}
+
+class StatisticsDisplay implements Observer, DisplayElement {
+    float maxTemp
+    float minTemp
+    float tempSum
+    int numReadings
+    WeatherData weatherData
+    update()
+    display()
+}
+
+class ForecastDisplay implements Observer, DisplayElement {
+    float currentPressure
+    float lastPressure
+    WeatherData weatherData
+    update()
+    display()
+}
+
+class HeatIndex implements Observer, DisplayElement {
+    Subject weatherData
+    float heatIndex
+    update()
+    display()
+}
+
+WeatherData --* Observer
+CurrentConditionsDisplay --* Subject
+StatisticsDisplay --* Subject
+ForecastDisplay --* Subject
+ThirdPartyDisplay --* Subject
+
+@enduml

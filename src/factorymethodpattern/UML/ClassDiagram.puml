@@ -1,0 +1,55 @@
+@startuml
+
+title Factory Pattern
+
+abstract class PizzaStore {
+    abstract Pizza createPizza()
+    void orderPizza()
+}
+
+Note left: The creator classes
+
+class NYPizzaStore extends PizzaStore {
+    Pizza createPizza()
+}
+
+class ChicagoPizzaStore extends PizzaStore {
+    Pizza createPizza()
+}
+
+abstract class Pizza {
+    String name
+    String dough
+    String sauce
+    List<String> toppings
+
+    void prepare()
+    void bake()
+    void cut()
+    void box()
+    String getName()
+}
+
+Note left: The product classes
+
+class NYStyleCheesePizza extends Pizza
+
+class ChicagoStyleCheesePizza extends Pizza {
+    void cut()
+}
+
+Note "Product-Creator relationship" as N1
+
+abstract class Product
+class ConcreteProduct extends Product
+
+abstract class Creator {
+    abstract Product factoryMethod()
+}
+class ConcreteCreator extends Creator {
+    Product factoryMethod()
+}
+
+ConcreteCreator -> ConcreteProduct
+
+@enduml

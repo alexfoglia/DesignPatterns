@@ -1,0 +1,37 @@
+@startuml
+
+title Facade Pattern
+
+class Client {
+}
+
+class HomeTheaterFacade {
+    Amplifier amp
+    Screen screen
+    DvdPlayer dvdPlayer
+    Projector projector
+
+    watchMovie()
+    endMovie()
+}
+
+class Amplifier {
+}
+
+class Screen {
+}
+
+class DvdPlayer {
+}
+
+class Projector {
+}
+
+Client -> HomeTheaterFacade
+
+HomeTheaterFacade - Amplifier
+HomeTheaterFacade - Screen
+HomeTheaterFacade - DvdPlayer
+HomeTheaterFacade - Projector
+
+@enduml
